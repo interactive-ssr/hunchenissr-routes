@@ -1,3 +1,8 @@
 #+title: Hunchenissr Routes
 
-Slight modification of [[https://github.com/bonkzwonil/defrest][defrest]] so that it works with [[https://github.com/interactive-ssr/hunchenissr][hunchenissr]].
+#+BEGIN_SRC lisp
+  (hunchenissr:defroute "/add/?a/?b" (;query args go here same as hunchentoot lambda-list
+                                      )
+  (format nil "~a" (+ a b))
+  )
+#+END_SRC

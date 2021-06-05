@@ -9,6 +9,8 @@
   :version "0"
   :serial t
   :depends-on (#:hunchenissr
-               #:defrest)
+               #:alexandria
+               #:cl-unification
+               #:cl-ppcre)
   :components ((:file "package")
                (:file "hunchenissr-routes")))
