@@ -1,8 +1,8 @@
 #+title: Hunchenissr Routes
 
 #+BEGIN_SRC lisp
-  (hunchenissr:defroute "/add/?a/?b" (;query args go here same as hunchentoot lambda-list
-                                      )
-  (format nil "~a" (+ a b))
-  )
+    (hunchenissr:defroute "/add/?a/?b" (;query args go here same as hunchentoot lambda-list
+                                        )
+      (format nil "~a" (+ (parse-integer a)
+                          (parse-integer b))))
 #+END_SRC
