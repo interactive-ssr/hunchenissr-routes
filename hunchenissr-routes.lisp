@@ -21,7 +21,7 @@
                        split)))
            (unified (gensym)))
       `(hunchentoot:define-easy-handler
-           (,(intern pattern)
+           (,(intern (concatenate 'string "route-" pattern))
             :uri (lambda (request)
                    (handler-case
                        (unify ',parts (cl-ppcre:split "/" (hunchentoot:script-name request)))
@@ -29,7 +29,8 @@
            ,args
          ,doc-string ,declarations
          (let ((,unified (unify ',parts
-                                 (cl-ppcre:split "/" (hunchentoot:script-name*)))))
+                                (cl-ppcre:split "/" (hunchentoot:script-name*)))))
+           (declare (ignorable ,unified))
            (let ,(map 'list
                       (lambda (var part)
                         (list var `(v? ',part ,unified)))
